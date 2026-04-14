@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+
+  <!-- Title -->
+  <h1 class="display-4 font-weight-bold">{{ post.title }}</h1>
+
+  <!-- Meta Info -->
+  <p class="text-muted">
+    By <strong>{{ post.author }}</strong> |
+    {{ post.created_at|date:"F d, Y" }} |
+    {{ post.created_at|timesince }} ago
+  </p>
+
+  <!-- Category -->
+  {% if post.category %}
+  <p><strong>Category:</strong> {{ post.category }}</p>
+  {% endif %}
+
+  <!-- Image -->
+  {% if post.blog_image %}
+  <img src="{{ post.blog_image.url }}" class="img-fluid rounded mb-4">
+  {% endif %}
+
+  <!-- Short Description -->
+  {% if post.short_description %}
+  <div class="mb-3">
+    <h5>Short Description</h5>
+    <p>{{ post.short_description }}</p>
+  </div>
+  {% endif %}
+
+  <!-- Full Description -->
+  <div class="mb-5">
+    <h4>Full Description</h4>
+    <p style="line-height: 1.8;">
+      {{ post.blog_body|linebreaks }}
+    </p>
+  </div>
+
+  <!-- Tags -->
+  {% if post.tags %}
+  <div class="mb-3">
+    <strong>Tags:</strong> {{ post.tags }}
+  </div>
+  {% endif %}
+
+  <!-- Author Section -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5>Author</h5>
+      <p>{{ post.author }}</p>
+    </div>
+  </div>
+
+  <!-- Back -->
+  <a href="{% url 'home' %}" class="btn btn-secondary mt-3">← Back</a>
+
+</div>
+
+{% endblock %}

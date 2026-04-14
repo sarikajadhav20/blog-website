@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<div class="container mt-4 mb-4 p-4 bg-light rounded shadow color-dark ">
+    <h3 class="card-title" style="color: #1b46c6;">Search Results for "{{query }}"</h3>
+
+    {% if results %}
+        {% for post in results %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>{{ post.title }}</h5>
+                    <p>{{ post.short_description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No results found</p>
+    {% endif %}
+</div>
+
+{% endblock %}
