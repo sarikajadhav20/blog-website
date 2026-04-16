@@ -3,7 +3,7 @@
         <div class=" nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a href="{% url 'dashboard' %}" class="nav-link text-dark {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">Dashboard</a>
             <a href="{% url 'categories' %}" class="nav-link text-dark {% if request.resolver_match.url_name == 'categories' %}active{% endif %}">Categories</a>
-            <a href="" class="nav-link text-dark" data-toggle="pill" role="tab">Posts</a>
-            <a href="" class="nav-link text-dark" data-toggle="pill" role="tab">Logout</a>
+            <a href="{% url 'posts' %}" class="nav-link text-dark {% if request.resolver_match.url_name == 'posts' %}active{% endif %}">Posts</a>
+            <a href="{% url 'logout' %}" class="nav-link text-dark">Logout</a>
         </div>
     </div>
